@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/single_child/constrained_box_page.dart';
+import 'package:flutter_ui/single_child/sized_box_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,6 +60,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text("ConstrainedBox"),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SizedBoxPage(),
+                    ),
+                  );
+                },
+                child: const Text("SizedBox"),
+              ),
             )
           ],
         ),
