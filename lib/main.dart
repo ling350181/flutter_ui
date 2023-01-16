@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/single_child/align_demo.dart';
 import 'package:flutter_ui/single_child/align_factor.dart';
 import 'package:flutter_ui/single_child/constrained_box_page.dart';
+import 'package:flutter_ui/single_child/fractionally_sized_box_page.dart';
 import 'package:flutter_ui/single_child/limited_box_page.dart';
 import 'package:flutter_ui/single_child/limted_box_unconstrained_page.dart';
 import 'package:flutter_ui/single_child/overflow_box_page.dart';
@@ -212,6 +213,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: const Text("SizedOverflowBox"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FractionallySizedBoxPage(),
+                    ),
+                  );
+                },
+                child: const Text("FractionallySizedBox"),
               ),
             ),
           ],
