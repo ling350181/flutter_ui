@@ -62,7 +62,7 @@ class RowAxisAlign extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "MainAxisAlignment." + e.toString().split(".")[1],
+                          e.toString(),
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

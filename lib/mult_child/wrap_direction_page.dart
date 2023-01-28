@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RowCrossAxisAlignPage extends StatelessWidget {
-  const RowCrossAxisAlignPage({Key? key}) : super(key: key);
+class WrapDirectionPage extends StatelessWidget {
+  const WrapDirectionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,34 @@ class RowCrossAxisAlignPage extends StatelessWidget {
         style: textStyle,
       ),
     );
+
+    final greenBox = Container(
+      alignment: Alignment.center,
+      color: Colors.green,
+      height: 20,
+      width: 20,
+      child: const Text(
+        '4',
+        style: textStyle,
+      ),
+    );
+
+    final purpleBox = Container(
+      alignment: Alignment.center,
+      color: Colors.purple,
+      height: 80,
+      width: 30,
+      child: const Text(
+        '5',
+        style: textStyle,
+      ),
+    );
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: SafeArea(
         child: Center(
           child: Column(
-            children: CrossAxisAlignment.values
+            children: Axis.values
                 .map((e) => Column(
                       children: [
                         Container(
@@ -51,15 +73,14 @@ class RowCrossAxisAlignPage extends StatelessWidget {
                           width: 260,
                           margin: const EdgeInsets.all(5),
                           color: Colors.grey,
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            crossAxisAlignment: e,
-                            textBaseline:
-                                e == CrossAxisAlignment.baseline ? TextBaseline.alphabetic : null,
+                          child: Wrap(
+                            direction: e,
                             children: [
                               blueBox,
                               redBox,
                               yellowBox,
+                              greenBox,
+                              purpleBox,
                             ],
                           ),
                         ),

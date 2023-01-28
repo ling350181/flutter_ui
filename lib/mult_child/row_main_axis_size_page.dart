@@ -62,7 +62,7 @@ class RowMainAxisSizePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "MainAxisSize." + e.toString().split(".")[1],
+                        e.toString(),
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
