@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/mult_child/row_axis_align_page.dart';
 import 'package:flutter_ui/mult_child/row_cross_axis_align_page.dart';
 import 'package:flutter_ui/mult_child/row_main_axis_size_page.dart';
+import 'package:flutter_ui/mult_child/stack_alignment_page.dart';
 import 'package:flutter_ui/mult_child/wrap_alignment_page.dart';
 import 'package:flutter_ui/mult_child/wrap_cross_axis_alignment_page.dart';
 import 'package:flutter_ui/mult_child/wrap_direction_page.dart';
@@ -228,6 +229,27 @@ class MultChildrenPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Wrap spacing"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StackAlignmentPage(),
+                    ),
+                  );
+                },
+                child: const Text("Stack alignment"),
               ),
             ),
           ],
