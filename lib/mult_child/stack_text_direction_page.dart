@@ -30,7 +30,7 @@ class StackTextDirectionPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Wrap(
+            child: Column(
               children: TextDirection.values
                   .map((e) => Column(
                         children: [
