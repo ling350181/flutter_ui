@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/flex/constrained_page.dart';
 import 'package:flutter_ui/flex/expanded_page.dart';
+import 'package:flutter_ui/flex/flexible_fit_page.dart';
 import 'package:flutter_ui/flex/flexible_flex_page.dart';
 import 'package:flutter_ui/flex/spacer_page.dart';
 
@@ -75,6 +76,27 @@ class FlexLayoutPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Flexible flex"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FlexibleFitPage(),
+                    ),
+                  );
+                },
+                child: const Text("Flexible fit"),
               ),
             ),
             Padding(

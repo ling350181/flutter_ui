@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FlexibleFlexPage extends StatelessWidget {
-  const FlexibleFlexPage({Key? key}) : super(key: key);
+class FlexibleFitPage extends StatelessWidget {
+  const FlexibleFitPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class FlexibleFlexPage extends StatelessWidget {
             ),
             Flexible(
               flex: 3,
-              fit: FlexFit.tight,
+              fit: FlexFit.loose,
               child: ColoredBox(color: Colors.blue),
             ),
             Flexible(
