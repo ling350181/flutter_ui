@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 
-class OverlayPage extends StatelessWidget {
-  OverlayPage({Key? key}) : super(key: key);
+class OverlayPage extends StatefulWidget {
+  const OverlayPage({Key? key}) : super(key: key);
 
+  @override
+  State<OverlayPage> createState() => _OverlayPageState();
+}
+
+class _OverlayPageState extends State<OverlayPage> {
   OverlayEntry? _entry;
+
+  @override
+  void dispose() {
+    removeEntry();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
