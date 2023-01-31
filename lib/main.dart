@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/custom_painter/circle_demo_page.dart';
 import 'package:flutter_ui/flex_layout_page.dart';
 import 'package:flutter_ui/mult_children_page.dart';
 import 'package:flutter_ui/overlay/overlay_page.dart';
@@ -106,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               child: TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
@@ -124,6 +125,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: const Text("Overlay"),
+              ),
+            ),
+            const Divider(
+              thickness: 2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CircleDemoPage(),
+                    ),
+                  );
+                },
+                child: const Text("Custom Painter Demo"),
               ),
             ),
           ],
