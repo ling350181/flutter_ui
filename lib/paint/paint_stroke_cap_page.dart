@@ -41,6 +41,7 @@ class StrokeCapPainter extends CustomPainter {
       textPainter.layout();
       textPainter.paint(canvas, Offset(40 + e.index * 100, 270));
     }).toList();
+    // 基準線
     canvas.drawLine(
       const Offset(20, 50),
       const Offset(370, 50),
@@ -48,7 +49,6 @@ class StrokeCapPainter extends CustomPainter {
         ..color = Colors.green
         ..strokeWidth = 2,
     );
-    // 基準線
     TextPainter textPainter = TextPainter(textDirection: TextDirection.ltr);
     textPainter.text = const TextSpan(
       text: "基準線",
