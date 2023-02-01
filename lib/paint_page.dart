@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/paint/paint_anti_alias_page.dart';
 import 'package:flutter_ui/paint/paint_blend_mode_page.dart';
+import 'package:flutter_ui/paint/paint_image_shader_page.dart';
+import 'package:flutter_ui/paint/paint_shader_linear_page.dart';
+import 'package:flutter_ui/paint/paint_shader_radial_page.dart';
+import 'package:flutter_ui/paint/paint_shader_sweep_page.dart';
 import 'package:flutter_ui/paint/paint_stroke_cap_page.dart';
 import 'package:flutter_ui/paint/paint_stroke_join_page.dart';
 import 'package:flutter_ui/paint/paint_stroke_miter_limit_page.dart';
@@ -97,6 +101,90 @@ class PaintPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Paint StrokeMiterLimit"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaintShaderLinearPage(),
+                    ),
+                  );
+                },
+                child: const Text("Shader linear"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaintShaderRadialPage(),
+                    ),
+                  );
+                },
+                child: const Text("Shader radial"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaintShaderSweepPage(),
+                    ),
+                  );
+                },
+                child: const Text("Shader sweep"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaintImageShaderPage(),
+                    ),
+                  );
+                },
+                child: const Text("Image Shader"),
               ),
             ),
             Padding(
