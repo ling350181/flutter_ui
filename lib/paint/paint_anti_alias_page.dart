@@ -24,11 +24,10 @@ class CirclePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
     canvas.drawCircle(
-        const Offset(100, 100),
-        90,
-        paint
-          ..color = Colors.blue
-          ..strokeWidth = 5);
+      const Offset(100, 100),
+      90,
+      paint..color = Colors.blue,
+    );
     canvas.drawCircle(
         const Offset(100 + 190.0, 100),
         90,
