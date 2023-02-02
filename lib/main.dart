@@ -47,6 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.only(bottom: 8),
+              child: Text(
+                "レイアウト",
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+            ),
             TextButton(
               style: TextButton.styleFrom(
                 minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
@@ -130,6 +139,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Divider(
               thickness: 2,
+            ),
+            const Text(
+              "カスタマイズ描画",
+              style: TextStyle(
+                color: Colors.red,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10),
