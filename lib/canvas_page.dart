@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/canvas/canvas_grid_page.dart';
 import 'package:flutter_ui/canvas/canvas_rotate_page.dart';
+import 'package:flutter_ui/canvas/canvas_skew_page.dart';
 import 'package:flutter_ui/canvas/canvas_translate_page.dart';
 
 class CanvasPage extends StatelessWidget {
@@ -74,6 +75,27 @@ class CanvasPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Canvas rotate"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CanvasSkewPage(),
+                    ),
+                  );
+                },
+                child: const Text("Canvas skew"),
               ),
             ),
           ],
