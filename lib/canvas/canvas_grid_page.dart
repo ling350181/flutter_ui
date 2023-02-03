@@ -31,20 +31,20 @@ class GridPainter extends CustomPainter {
     _drawGridRight(canvas, size);
 
     canvas.save();
-    // X軸の镜像
+    // X軸の鏡像
     canvas.scale(1, -1);
     _drawGridRight(canvas, size);
     // リセット
     canvas.restore();
 
     canvas.save();
-    // Y軸の镜像
+    // Y軸の鏡像
     canvas.scale(-1, 1);
     _drawGridRight(canvas, size);
     canvas.restore();
 
     canvas.save();
-    // 原点の镜像
+    // 原点の鏡像
     canvas.scale(-1, -1);
     _drawGridRight(canvas, size);
     canvas.restore();

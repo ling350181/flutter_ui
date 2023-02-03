@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:typed_data';
 import 'dart:async';
 
@@ -89,7 +90,7 @@ class ImagePainter extends CustomPainter {
       image!,
       tileMode,
       tileMode,
-      Float64List.fromList([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]),
+      Matrix4.rotationZ(0).storage,
     );
     // 半径50の円
     canvas.drawCircle(
