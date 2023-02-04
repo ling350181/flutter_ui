@@ -13,7 +13,7 @@ class PathMoveToPage extends StatelessWidget {
         children: [
           Expanded(
             child: CustomPaint(
-              painter: DrawPointPainter(),
+              painter: MoveToPainter(),
             ),
           ),
         ],
@@ -22,7 +22,7 @@ class PathMoveToPage extends StatelessWidget {
   }
 }
 
-class DrawPointPainter extends CustomPainter with DrawGridPain {
+class MoveToPainter extends CustomPainter with DrawGridPain {
   @override
   void paint(Canvas canvas, Size size) {
     drawGrid(canvas, size);
@@ -68,7 +68,8 @@ class DrawPointPainter extends CustomPainter with DrawGridPain {
       ..relativeLineTo(40, 60)
       ..relativeLineTo(40, -140)
       ..relativeLineTo(40, 260)
-      ..relativeLineTo(40, -220);
+      ..relativeLineTo(40, -220)
+      ..close();
     canvas.drawPath(path, paint);
   }
 
