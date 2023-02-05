@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/path/path_addrect_page.dart';
 import 'package:flutter_ui/path/path_arcto_page.dart';
 import 'package:flutter_ui/path/path_arctopoint_page.dart';
 import 'package:flutter_ui/path/path_conicto_page.dart';
@@ -140,6 +141,27 @@ class PathPage extends StatelessWidget {
                   );
                 },
                 child: const Text("3次ベジェ曲線"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PathAddRectPage(),
+                    ),
+                  );
+                },
+                child: const Text("path addRect"),
               ),
             ),
           ],
