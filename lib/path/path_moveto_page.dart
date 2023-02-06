@@ -68,8 +68,7 @@ class MoveToPainter extends CustomPainter with DrawGridPain {
       ..relativeLineTo(40, 60)
       ..relativeLineTo(40, -140)
       ..relativeLineTo(40, 260)
-      ..relativeLineTo(40, -220)
-      ..close();
+      ..relativeLineTo(40, -220);
     canvas.drawPath(path, paint);
   }
 
