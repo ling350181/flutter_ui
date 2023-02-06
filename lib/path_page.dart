@@ -6,9 +6,11 @@ import 'package:flutter_ui/path/path_arcto_page.dart';
 import 'package:flutter_ui/path/path_arctopoint_page.dart';
 import 'package:flutter_ui/path/path_close_reset_shift.dart';
 import 'package:flutter_ui/path/path_conicto_page.dart';
+import 'package:flutter_ui/path/path_contains_page.dart';
 import 'package:flutter_ui/path/path_cubicto_page.dart';
 import 'package:flutter_ui/path/path_moveto_page.dart';
 import 'package:flutter_ui/path/path_quadratic_bezierto_page.dart';
+import 'package:flutter_ui/path/path_transform_page.dart';
 
 class PathPage extends StatelessWidget {
   const PathPage({Key? key}) : super(key: key);
@@ -227,7 +229,49 @@ class PathPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text("path close reset shift"),
+                child: const Text("path close/reset/shift"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PathContainsPage(),
+                    ),
+                  );
+                },
+                child: const Text("path contains/getBounds"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PathTransformPage(),
+                    ),
+                  );
+                },
+                child: const Text("path transform"),
               ),
             ),
           ],
