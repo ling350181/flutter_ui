@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/application/draw_path_grid.dart';
 import 'package:flutter_ui/canvas/draw_grid_paint.dart';
 
 class PathMetricsPage extends StatefulWidget {
@@ -37,13 +38,13 @@ class _PathMetricsPageState extends State<PathMetricsPage> with SingleTickerProv
   }
 }
 
-class PathMetricsPainter extends CustomPainter with DrawGridPain {
+class PathMetricsPainter extends CustomPainter {
   final AnimationController progress;
 
   PathMetricsPainter(this.progress) : super(repaint: progress);
   @override
   void paint(Canvas canvas, Size size) {
-    drawGrid(canvas, size);
+    DrawPathGrid().paint(canvas, size);
     // 描画スタートはCanvasの中心へ移動
     canvas.translate(size.width / 2, size.height / 2);
     Paint paint = Paint()

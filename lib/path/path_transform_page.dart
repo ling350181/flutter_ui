@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/application/draw_path_grid.dart';
 import 'package:flutter_ui/canvas/draw_grid_paint.dart';
 
 class PathTransformPage extends StatelessWidget {
@@ -24,10 +25,10 @@ class PathTransformPage extends StatelessWidget {
   }
 }
 
-class PathTransformPainter extends CustomPainter with DrawGridPain {
+class PathTransformPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    drawGrid(canvas, size);
+    DrawPathGrid().paint(canvas, size);
     // 描画スタートはCanvasの中心へ移動
     canvas.translate(size.width / 2, size.height / 2);
     Path path = Path();
