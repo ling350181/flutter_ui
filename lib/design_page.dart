@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/application/ticket_page.dart';
 import 'package:flutter_ui/design/box_border_page.dart';
 import 'package:flutter_ui/design/input_border_page.dart';
 import 'package:flutter_ui/design/outlined_border_page.dart';
@@ -96,6 +97,27 @@ class DesignPage extends StatelessWidget {
                   );
                 },
                 child: const Text("OutlinedBorder"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TicketPage(),
+                    ),
+                  );
+                },
+                child: const Text("応用：チケット"),
               ),
             ),
           ],
