@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/application/draw_dash_circle.dart';
+import 'package:flutter_ui/application/polygon/star_page.dart';
+import 'package:flutter_ui/application/polygon/triangle_page.dart';
 import 'package:flutter_ui/path/path_add_polygon_page.dart';
 import 'package:flutter_ui/path/path_addoval_page.dart';
 import 'package:flutter_ui/path/path_addrect_page.dart';
@@ -360,6 +362,48 @@ class PathPage extends StatelessWidget {
                   );
                 },
                 child: const Text("応用編：破線"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TrianglePage(),
+                    ),
+                  );
+                },
+                child: const Text("応用編：多角形"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StarPage(),
+                    ),
+                  );
+                },
+                child: const Text("応用編：star"),
               ),
             ),
           ],
