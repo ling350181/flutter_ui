@@ -4,7 +4,7 @@ import 'package:flutter_ui/animation/controller_repeat_page.dart';
 import 'package:flutter_ui/animation/controller_reverse_page.dart';
 import 'package:flutter_ui/animation/controller_stop_page.dart';
 import 'package:flutter_ui/animation/controller_value_page.dart';
-import 'package:flutter_ui/animation/cotroller_fling_page.dart';
+import 'package:flutter_ui/animation/controller_fling_page.dart';
 
 class AnimationControllerPage extends StatelessWidget {
   const AnimationControllerPage({Key? key}) : super(key: key);
