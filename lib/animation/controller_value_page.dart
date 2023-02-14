@@ -15,9 +15,8 @@ class _ControllerValuePageState extends State<ControllerValuePage>
   void initState() {
     super.initState();
     _ctrl = AnimationController(
-      value: 1,
+      value: 0.4,
       vsync: this,
-      lowerBound: 0.4,
       duration: const Duration(milliseconds: 500),
       reverseDuration: const Duration(milliseconds: 500),
     );
@@ -55,7 +54,7 @@ class _ControllerValuePageState extends State<ControllerValuePage>
   double get fontSize => 60 * _ctrl.value;
 
   void _startAnim() {
-    //_ctrl.reset();
-    _ctrl.reverse();
+    _ctrl.reset();
+    _ctrl.forward();
   }
 }
