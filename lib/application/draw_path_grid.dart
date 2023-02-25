@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DrawPathGrid {
+  final double scale;
+  final bool showScale;
   final Paint _gridPaint = Paint();
+  // コンストラクター
+  DrawPathGrid({
+    this.scale = 20,
+    this.showScale = false,
+  });
 
   void paint(Canvas canvas, Size size) {
     canvas.save();
@@ -14,6 +21,9 @@ class DrawPathGrid {
   void paintChart(Canvas canvas, Size size) {
     canvas.save();
     _drawChartAxis(canvas, size);
+    if (showScale) {
+      _drawScale(canvas, size);
+    }
     canvas.restore();
   }
 
@@ -47,6 +57,35 @@ class DrawPathGrid {
         Offset(size.width, size.height), Offset(size.width - 10, size.height + 7), _gridPaint);
     canvas.drawLine(
         Offset(size.width, size.height), Offset(size.width - 10, size.height - 7), _gridPaint);
+  }
+
+  void _drawScale(Canvas canvas, Size size) {
+    canvas.translate(0, size.height);
+    Paint scalePaint = Paint()
+      ..color = Colors.purple
+      ..strokeWidth = 1
+      ..style = PaintingStyle.stroke;
+    TextPainter textPainter =
+        TextPainter(textAlign: TextAlign.center, textDirection: TextDirection.ltr);
+    Path scalePath = Path();
+    for (int i = 1; i <= 10; i++) {
+      scalePath
+        ..moveTo(0, -scale * i)
+        ..relativeLineTo(-5, 0);
+
+      textPainter.text = TextSpan(
+          text: (i * scale.toInt()).toString(),
+          style: const TextStyle(
+            fontSize: 12,
+            color: Colors.black,
+          ));
+
+      textPainter.layout();
+      Size textSize = textPainter.size;
+      textPainter.paint(canvas, Offset(-textSize.width - 5, -scale * i - textSize.height / 2));
+    }
+
+    canvas.drawPath(scalePath, scalePaint);
   }
 
   // グリッド
