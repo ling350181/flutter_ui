@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/animation/tween_chain_page.dart';
 import 'package:flutter_ui/animation/tween_demo_page.dart';
+import 'package:flutter_ui/animation/tween_sequence_page.dart';
 
 class TweenPage extends StatelessWidget {
   const TweenPage({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class TweenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Curve'),
+        title: const Text('Tween'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -52,6 +53,27 @@ class TweenPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Animatable chain"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TweenSequencePage(),
+                    ),
+                  );
+                },
+                child: const Text("Animatable tween sequcence"),
               ),
             ),
           ],
