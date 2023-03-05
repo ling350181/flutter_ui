@@ -17,7 +17,7 @@ class _ScaleTransitionPageState extends State<ScaleTransitionPage>
     _ctrl = AnimationController(
       lowerBound: 0.3,
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1000),
     );
   }
 

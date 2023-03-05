@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/animation/animated_widget/rotation_transition_page.dart';
 import 'package:flutter_ui/animation/animated_widget/scale_transition_page.dart';
 
 class AnimatedWidgetPage extends StatelessWidget {
@@ -31,6 +32,27 @@ class AnimatedWidgetPage extends StatelessWidget {
                 );
               },
               child: const Text("ScaleTransition"),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RotationTransitionPage(),
+                    ),
+                  );
+                },
+                child: const Text("RotationTransition"),
+              ),
             ),
           ],
         ),
