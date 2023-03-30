@@ -35,7 +35,7 @@ class _CurveDemoPageState extends State<CurveDemoPage> with SingleTickerProvider
   }
 
   void _collectPoint() {
-    points.push(curveAnim.value);
+    points.push(10);
   }
 
   @override
