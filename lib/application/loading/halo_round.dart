@@ -1,16 +1,17 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
 /// シンプル回転円
-class SimpleLoading extends StatefulWidget {
-  const SimpleLoading({Key? key}) : super(key: key);
+class HaloRound extends StatefulWidget {
+  const HaloRound({Key? key}) : super(key: key);
 
   @override
-  State<SimpleLoading> createState() => _SimpleLoadingState();
+  State<HaloRound> createState() => _HaloRoundState();
 }
 
-class _SimpleLoadingState extends State<SimpleLoading> with SingleTickerProviderStateMixin {
+class _HaloRoundState extends State<HaloRound> with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
 
   @override
@@ -41,7 +42,7 @@ class _SimpleLoadingState extends State<SimpleLoading> with SingleTickerProvider
             children: [
               Expanded(
                 child: CustomPaint(
-                  painter: SimpleLoadingPainter(_ctrl),
+                  painter: HaloRoundPainter(_ctrl),
                 ),
               ),
             ],
@@ -52,10 +53,10 @@ class _SimpleLoadingState extends State<SimpleLoading> with SingleTickerProvider
   }
 }
 
-class SimpleLoadingPainter extends CustomPainter {
+class HaloRoundPainter extends CustomPainter {
   Animation<double> animation;
 
-  SimpleLoadingPainter(this.animation) : super(repaint: animation);
+  HaloRoundPainter(this.animation) : super(repaint: animation);
 
   final Animatable<double> breatheTween = TweenSequence<double>(
     <TweenSequenceItem<double>>[
@@ -74,17 +75,28 @@ class SimpleLoadingPainter extends CustomPainter {
     canvas.translate(size.width / 2, size.height / 2);
     final Paint paint = Paint()
       ..style = PaintingStyle.stroke
+      ..color = Colors.purple
       ..strokeWidth = 1;
+    // 光輪
+    paint.maskFilter = MaskFilter.blur(BlurStyle.solid, breatheTween.evaluate(animation));
+    List<Color> colors = [
+      Colors.red,
+      Colors.orange,
+      Colors.yellow,
+      Colors.green,
+      Colors.cyan,
+      Colors.blue,
+      Colors.purple,
+    ];
 
-    Path result = Path();
-    result.addArc(Rect.fromCircle(center: const Offset(0, 0), radius: 100), 0, pi * 0.75);
-    canvas.save();
-    canvas.rotate(animation.value * 2 * pi);
-    paint
-      ..style = PaintingStyle.stroke
-      ..color = const Color(0xff00abf2);
-    canvas.drawPath(result, paint);
-    canvas.restore();
+    colors.addAll(colors.toList());
+
+    final List<double> pos = List.generate(colors.length, (index) => index / colors.length);
+    // shader
+    paint.shader = ui.Gradient.sweep(Offset.zero, colors, pos, TileMode.clamp, 0, 2 * pi);
+    Path path = Path();
+    path.addOval(Rect.fromCenter(center: Offset.zero, width: 200, height: 200));
+    canvas.drawPath(path, paint);
   }
 
   @override
