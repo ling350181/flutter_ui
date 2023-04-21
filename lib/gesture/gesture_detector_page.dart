@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class GestureDetectorPage extends StatelessWidget {
@@ -156,6 +157,63 @@ class GestureDetectorPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onLongPressDown: (LongPressDownDetails details) {
+                print('-----onLongPressDown---------');
+                print('-----Widget相対偏移値---${details.localPosition}------');
+                print('-----スクリーン相対偏移値---${details.globalPosition}------');
+                print('-----イベントを開始したデバイスの種類---${details.kind}------');
+              },
+              onLongPressEnd: (LongPressEndDetails details) {
+                print('-----onLongPressEnd---------');
+                print('-----Widget相対偏移値---${details.localPosition}------');
+                print('-----スクリーン相対偏移値---${details.globalPosition}------');
+                print('-----イベント終了時の速度---${details.velocity}------');
+              },
+              onLongPress: () {
+                print('-----onLongPress---------');
+              },
+              onLongPressStart: (LongPressStartDetails details) {
+                print('-----onLongPressStart---------');
+                print('-----Widget相対偏移値---${details.localPosition}------');
+                print('-----スクリーン相対偏移値---${details.globalPosition}------');
+              },
+              onLongPressMoveUpdate: (LongPressMoveUpdateDetails details) {
+                print('-----onLongPressMoveUpdate---------');
+                print('-----Widget相対偏移値---${details.localPosition}------');
+                print('-----スクリーン相対偏移値---${details.globalPosition}------');
+                print('-----移動の絶対偏移値---${details.offsetFromOrigin}------');
+                print('-----移動の相対偏移値---${details.localOffsetFromOrigin}------');
+              },
+              onLongPressUp: () {
+                print('-----onLongPressUp---------');
+              },
+              onLongPressCancel: () {
+                print('-----onLongPressCancel---------');
+              },
+              child: Center(
+                child: Container(
+                  color: Colors.blue,
+                  height: 100,
+                  width: 200,
+                  child: const Center(
+                    child: Text(
+                      "Long Press",
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),
