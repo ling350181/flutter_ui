@@ -218,61 +218,6 @@ class _GestureDetectorPageState extends State<GestureDetectorPage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              onPanDown: (DragDownDetails details) {
-                print('-----onPanDown---------');
-                print('-----タッチポイントからWidget左上の相対偏移値---${details.localPosition}------');
-                print('-----タッチポイントから設備スクリーン左上の相対偏移値---${details.globalPosition}------');
-              },
-              onPanEnd: (DragEndDetails details) {
-                print('-----onLongPressEnd---------');
-                print('-----移動終了時の速度---${details.velocity}------');
-                print('-----移動方向の初期速度---${details.primaryVelocity}------');
-              },
-              onPanStart: (DragStartDetails details) {
-                print('-----onPanStart---------');
-                print('-----ドラッグ開始のタイムスタンプ---${details.sourceTimeStamp}------');
-                print('-----Widget相対偏移値---${details.localPosition}------');
-                print('-----スクリーン相対偏移値---${details.globalPosition}------');
-                print('-----イベントを開始したデバイスの種類---${details.kind}------');
-              },
-              onPanUpdate: (DragUpdateDetails details) {
-                print('-----onLongPressMoveUpdate---------');
-                print('-----移動時のタイムスタンプ---${details.sourceTimeStamp}------');
-                print('-----毎回移動更新の偏移値---${details.delta}------');
-                print('-----移動方向の初期偏移値---${details.primaryDelta}------');
-                print('-----Widget相対偏移値---${details.localPosition}------');
-                print('-----スクリーン相対偏移値---${details.globalPosition}------');
-
-                if (panHeight > details.delta.dy.abs() + 20 || details.delta.dy > 0) {
-                  setState(() {
-                    panHeight = panHeight + details.delta.dy;
-                  });
-                }
-              },
-              onPanCancel: () {
-                print('-----onPanCancel---------');
-              },
-              child: Center(
-                child: Container(
-                  color: Colors.blue,
-                  height: panHeight,
-                  width: 200,
-                  child: const Center(
-                    child: Text(
-                      "Pan",
-                      style: TextStyle(
-                        fontSize: 28,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
