@@ -5,6 +5,7 @@ import 'package:flutter_ui/canvas/canvas_clip_rrect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_circle_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_drrect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_image_page.dart';
+import 'package:flutter_ui/canvas/canvas_draw_image_rect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_point_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_rect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_rrect_page.dart';
@@ -316,6 +317,27 @@ class CanvasPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Canvas drawImage"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CanvasDrawImageRectPage(),
+                    ),
+                  );
+                },
+                child: const Text("Canvas drawImageRect"),
               ),
             ),
           ],
