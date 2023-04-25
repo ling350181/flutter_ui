@@ -15,7 +15,7 @@ class CanvasClipRectPage extends StatelessWidget {
         children: [
           Expanded(
             child: CustomPaint(
-              painter: DrawCirclePainter(),
+              painter: DrawClipRectPainter(),
             ),
           ),
         ],
@@ -24,7 +24,7 @@ class CanvasClipRectPage extends StatelessWidget {
   }
 }
 
-class DrawCirclePainter extends CustomPainter with DrawGridPain {
+class DrawClipRectPainter extends CustomPainter with DrawGridPain {
   @override
   void paint(Canvas canvas, Size size) {
     // グリッド線
