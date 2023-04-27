@@ -7,12 +7,14 @@ import 'package:flutter_ui/canvas/canvas_draw_drrect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_image_nine_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_image_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_image_rect_page.dart';
+import 'package:flutter_ui/canvas/canvas_draw_paragraph_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_point_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_rect_page.dart';
 import 'package:flutter_ui/canvas/canvas_draw_rrect_page.dart';
 import 'package:flutter_ui/canvas/canvas_grid_page.dart';
 import 'package:flutter_ui/canvas/canvas_rotate_page.dart';
 import 'package:flutter_ui/canvas/canvas_skew_page.dart';
+import 'package:flutter_ui/canvas/canvas_text_painter_page.dart';
 import 'package:flutter_ui/canvas/canvas_transform_page.dart';
 import 'package:flutter_ui/canvas/canvas_translate_page.dart';
 
@@ -360,6 +362,48 @@ class CanvasPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Canvas drawImageNine"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CanvasDrawParagraphPage(),
+                    ),
+                  );
+                },
+                child: const Text("Canvas drawParagraph"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CanvasTextPainterPage(),
+                    ),
+                  );
+                },
+                child: const Text("Canvas TextPainter"),
               ),
             ),
           ],
