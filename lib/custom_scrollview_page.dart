@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_demo_page.dart';
+import 'package:flutter_ui/custom_scrollview/sliver_floating_page.dart';
+import 'package:flutter_ui/custom_scrollview/sliver_pinned_page.dart';
+import 'package:flutter_ui/custom_scrollview/sliver_snap_page.dart';
 import 'package:flutter_ui/custom_scrollview/two_listview_page.dart';
 import 'package:flutter_ui/custom_scrollview/two_listview_page2.dart';
 
@@ -74,6 +77,69 @@ class CustomScrollViewPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Sliver Demo"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SliverFloatingPage(),
+                    ),
+                  );
+                },
+                child: const Text("Sliver floating"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SliverPinnedPage(),
+                    ),
+                  );
+                },
+                child: const Text("Sliver pinned"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SliverSnapPage(),
+                    ),
+                  );
+                },
+                child: const Text("Sliver snap"),
               ),
             ),
           ],
