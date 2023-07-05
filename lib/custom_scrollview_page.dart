@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_demo_page.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_floating_page.dart';
+import 'package:flutter_ui/custom_scrollview/sliver_persistent_header_page.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_pinned_page.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_snap_page.dart';
 import 'package:flutter_ui/custom_scrollview/sliver_stretch_page.dart';
@@ -184,6 +185,27 @@ class CustomScrollViewPage extends StatelessWidget {
                   );
                 },
                 child: const Text("Sliver SliverToBoxAdapter"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SliverPersistentHeaderPage(),
+                    ),
+                  );
+                },
+                child: const Text("Sliver SliverPersistentHeader"),
               ),
             ),
           ],
