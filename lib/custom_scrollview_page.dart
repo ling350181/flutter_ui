@@ -16,7 +16,7 @@ class CustomScrollViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ListView'),
+        title: const Text('CustomScrollView'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
