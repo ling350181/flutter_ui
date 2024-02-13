@@ -11,6 +11,7 @@ import 'package:flutter_ui/mult_children_page.dart';
 import 'package:flutter_ui/overlay/overlay_page.dart';
 import 'package:flutter_ui/paint_page.dart';
 import 'package:flutter_ui/path_page.dart';
+import 'package:flutter_ui/scroll_page.dart';
 import 'package:flutter_ui/single_child_page.dart';
 
 void main() {
@@ -367,6 +368,36 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: const Text("ジェスチャー"),
+              ),
+            ),
+            const Divider(
+              thickness: 2,
+            ),
+            const Text(
+              "スクロール",
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScrollPage(),
+                    ),
+                  );
+                },
+                child: const Text("スクロール"),
               ),
             ),
           ],
