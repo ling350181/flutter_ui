@@ -9,6 +9,8 @@ class OffstageVisibilityPage extends StatefulWidget {
 
 class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
   late bool _offstage;
+  late bool _visibility;
+  late bool _aniVisibility;
   late Decoration _decoration;
   late double _height;
   late Alignment _alignment;
@@ -16,6 +18,8 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
   @override
   void initState() {
     _offstage = false;
+    _visibility = true;
+    _aniVisibility = true;
     _resetAnim();
     super.initState();
   }
@@ -82,7 +86,6 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
                       onPressed: () {
                         _offstage = !_offstage;
                         _startAnim();
-
                         setState(() {});
                         print('表示／非表示');
                       },
@@ -99,6 +102,119 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
                 ),
                 Offstage(
                   offstage: _offstage,
+                  child: AnimatedContainer(
+                    decoration: _decoration,
+                    height: _height,
+                    width: 300,
+                    alignment: _alignment,
+                    duration: const Duration(milliseconds: 2000),
+                    curve: Curves.linear,
+                    child: const Icon(
+                      Icons.ac_unit,
+                      color: Colors.red,
+                      size: 25,
+                    ),
+                    onEnd: () {
+                      print('アニメーション終了');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            alignment: Alignment.topCenter,
+            color: Colors.yellow,
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    _visibility = !_visibility;
+                    setState(() {});
+                  },
+                  child: const Text("Visibility: show/hide"),
+                ),
+                Visibility(
+                  visible: _visibility,
+                  child: const Icon(
+                    Icons.ac_unit,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            alignment: Alignment.topCenter,
+            color: Colors.yellow,
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    _visibility = !_visibility;
+                    setState(() {});
+                  },
+                  child: const Text("Visibilityスペース占有: show/hide"),
+                ),
+                Visibility(
+                  maintainSize: true,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  maintainInteractivity: true,
+                  visible: _visibility,
+                  child: GestureDetector(
+                    onTap: () {
+                      print("タップしました。");
+                    },
+                    child: const Icon(
+                      Icons.ac_unit,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.dangerous,
+                      color: Colors.green,
+                    ),
+                    Text("参照アイコン"),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            alignment: Alignment.topCenter,
+            color: Colors.green,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        _aniVisibility = !_aniVisibility;
+                        _startAnim();
+                        setState(() {});
+                        print('表示／非表示');
+                      },
+                      child: const Text("Visibility: show/hide"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _resetAnim();
+                        setState(() {});
+                      },
+                      child: const Text("Reset Anim"),
+                    ),
+                  ],
+                ),
+                Visibility(
+                  visible: _aniVisibility,
+                  maintainState: true,
+                  maintainAnimation: true,
                   child: AnimatedContainer(
                     decoration: _decoration,
                     height: _height,
