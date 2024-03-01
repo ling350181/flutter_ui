@@ -11,6 +11,7 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
   late bool _offstage;
   late bool _visibility;
   late bool _aniVisibility;
+  late bool _repVisibility;
   late Decoration _decoration;
   late double _height;
   late Alignment _alignment;
@@ -20,6 +21,7 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
     _offstage = false;
     _visibility = true;
     _aniVisibility = true;
+    _repVisibility = true;
     _resetAnim();
     super.initState();
   }
@@ -30,7 +32,7 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
       appBar: AppBar(
         title: const Text('OffstageとVisibility'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             alignment: Alignment.topCenter,
@@ -139,6 +141,32 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
                   child: const Icon(
                     Icons.ac_unit,
                     color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            alignment: Alignment.topCenter,
+            color: Colors.green,
+            child: Column(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    _repVisibility = !_repVisibility;
+                    setState(() {});
+                  },
+                  child: const Text("Visibility: replacement"),
+                ),
+                Visibility(
+                  visible: _repVisibility,
+                  replacement: const Icon(
+                    Icons.access_alarm_outlined,
+                    color: Colors.red,
+                  ),
+                  child: const Icon(
+                    Icons.ac_unit,
+                    color: Colors.red,
                   ),
                 ),
               ],
