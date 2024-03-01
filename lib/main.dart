@@ -10,6 +10,7 @@ import 'package:flutter_ui/gesture_page.dart';
 import 'package:flutter_ui/intrinsic_page.dart';
 import 'package:flutter_ui/list_view_page.dart';
 import 'package:flutter_ui/mult_children_page.dart';
+import 'package:flutter_ui/offstage_visibility_page.dart';
 import 'package:flutter_ui/overlay/overlay_page.dart';
 import 'package:flutter_ui/paint_page.dart';
 import 'package:flutter_ui/path_page.dart';
@@ -229,6 +230,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: const Text("IntrinsicHeight"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OffstageVisibilityPage(),
+                    ),
+                  );
+                },
+                child: const Text("OffstageとVisibility"),
               ),
             ),
             const Divider(
