@@ -29,10 +29,10 @@ class _ParabolaGesturePageState extends State<ParabolaGesturePage> {
                   color: Colors.yellow,
                   child: GestureDetector(
                     onPanUpdate: (details) {
-                      final localPosition = (context.findRenderObject() as RenderBox)
-                          .globalToLocal(details.localPosition);
-                      final centerHeight = _key.currentContext!.size!.height / 2;
-                      final contextWidth = _key.currentContext!.size!.width;
+                      final RenderBox box = _key.currentContext!.findRenderObject()! as RenderBox;
+                      final localPosition = box.globalToLocal(details.localPosition);
+                      final centerHeight = box.size.height / 2;
+                      final contextWidth = box.size.width;
                       if ((localPosition.dy - centerHeight).abs() < 10 &&
                           localPosition.dx > 20 &&
                           localPosition.dx < contextWidth) {
