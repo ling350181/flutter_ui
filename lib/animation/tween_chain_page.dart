@@ -87,7 +87,7 @@ class LinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    DrawPathGrid(showScale: true).paintChart(canvas, size);
+    DrawPathGrid(showScale: true).paintOneQuadrant(canvas, size);
     canvas.translate(0, size.height);
     Paint paint = Paint()
       ..style = PaintingStyle.stroke

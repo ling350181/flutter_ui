@@ -35,7 +35,7 @@ class _CurveDemoPageState extends State<CurveDemoPage> with SingleTickerProvider
   }
 
   void _collectPoint() {
-    points.push(10);
+    points.push(curveAnim.value);
   }
 
   @override
@@ -84,7 +84,7 @@ class LinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    DrawPathGrid().paintChart(canvas, size);
+    DrawPathGrid().paintOneQuadrant(canvas, size);
     canvas.translate(0, size.height);
     Paint paint = Paint()
       ..style = PaintingStyle.stroke

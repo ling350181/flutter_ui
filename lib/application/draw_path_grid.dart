@@ -10,6 +10,7 @@ class DrawPathGrid {
     this.showScale = false,
   });
 
+  /// グリッド線
   void paint(Canvas canvas, Size size) {
     canvas.save();
     canvas.translate(size.width / 2, size.height / 2);
@@ -18,13 +19,41 @@ class DrawPathGrid {
     canvas.restore();
   }
 
-  void paintChart(Canvas canvas, Size size) {
+  /// 第一象限
+  void paintOneQuadrant(Canvas canvas, Size size) {
     canvas.save();
     _drawChartAxis(canvas, size);
     if (showScale) {
       _drawScale(canvas, size);
     }
     canvas.restore();
+  }
+
+  /// 第一・四象限
+  void paintTwoQuadrant(Canvas canvas, Size size) {
+    canvas.save();
+    _drawTwoAxis(canvas, size);
+    if (showScale) {
+      _drawScale(canvas, size);
+    }
+    canvas.restore();
+  }
+
+  // xy軸
+  void _drawTwoAxis(Canvas canvas, Size size) {
+    _gridPaint
+      ..color = Colors.grey
+      ..strokeWidth = 1.5;
+    // x軸
+    canvas.drawLine(Offset(0, size.height / 2), Offset(size.width, size.height / 2), _gridPaint);
+    // y軸
+    canvas.drawLine(Offset.zero, Offset(0, size.height), _gridPaint);
+    canvas.drawLine(Offset.zero, const Offset(0 - 7.0, 10), _gridPaint);
+    canvas.drawLine(Offset.zero, const Offset(0 + 7.0, 10), _gridPaint);
+    canvas.drawLine(Offset(size.width, size.height / 2),
+        Offset(size.width - 10, size.height / 2 + 7), _gridPaint);
+    canvas.drawLine(Offset(size.width, size.height / 2),
+        Offset(size.width - 10, size.height / 2 - 7), _gridPaint);
   }
 
   // xy軸
