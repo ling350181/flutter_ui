@@ -15,8 +15,4 @@ class LineModel {
     this.strokeWidth = 1,
     this.state = PaintState.doing,
   });
-
-  setState(PaintState paintState) {
-    state = paintState;
-  }
 }

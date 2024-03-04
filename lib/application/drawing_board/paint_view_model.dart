@@ -44,7 +44,7 @@ class PaintViewModel {
   /// ペンの一回移動／描画
   void doneLine() {
     if (activeLine.state != PaintState.doing) return;
-    activeLine.setState(PaintState.done);
+    activeLine.state = PaintState.done;
   }
 
   /// 描かれた線を全部消す
