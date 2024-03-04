@@ -166,6 +166,8 @@ class DrawBoardPainter extends CustomPainter {
     // 点を描く
     for (LineModel element in paintViewModel.lines) {
       _paint
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
         ..color = element.color
         ..strokeWidth = element.strokeWidth;
       canvas.drawPoints(PointMode.polygon, element.points, _paint);
