@@ -1,10 +1,19 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ui/application/drawing_board/line_model.dart';
 
 class PaintViewModel {
   final List<LineModel> _lines = [];
 
+  Color _activeColor = Colors.black;
+
+  double _activeWidth = 1;
+
   List<LineModel> get lines => _lines;
+
+  double get activeWidth => _activeWidth;
+
+  Color get activeColor => _activeColor;
 
   /// 描画中の線
   LineModel get activeLine {
@@ -19,6 +28,16 @@ class PaintViewModel {
   void pushPoint(Offset point) {
     if (activeLine.state != PaintState.doing) return;
     activeLine.points.add(point);
+  }
+
+  /// ペンの色や幅を選択する
+  void renderPenColor(Color color) {
+    _activeColor = color;
+  }
+
+  /// ペンの色や幅を選択する
+  void renderPenWidth(double width) {
+    _activeWidth = width;
   }
 
   /// ペンを離す瞬間、一回の描画を終了する
@@ -44,7 +63,10 @@ class PaintViewModel {
   /// ペン押下時、線の集合をプッシュ
   /// その後、移動しながら、集合にポイントをプッシュする
   void initLineData() {
-    LineModel line = LineModel();
+    LineModel line = LineModel(
+      color: _activeColor,
+      strokeWidth: _activeWidth,
+    );
     _lines.add(line);
   }
 }
