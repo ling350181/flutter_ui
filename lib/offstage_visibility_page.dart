@@ -200,9 +200,9 @@ class _OffstageVisibilityPageState extends State<OffstageVisibilityPage> {
                     ),
                   ),
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Icon(
                       Icons.dangerous,
                       color: Colors.green,

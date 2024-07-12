@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/application/draw_path_grid.dart';
-import 'package:flutter_ui/canvas/draw_grid_paint.dart';
 
 class PathTransformPage extends StatelessWidget {
   const PathTransformPage({Key? key}) : super(key: key);

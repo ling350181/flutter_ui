@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/application/drawing_board/line_model.dart';
+import 'package:flutter_ui/application/drawing_board_pro/line_model.dart';
 
 class PaintViewModel {
   final List<LineModel> _lines = [];
@@ -26,6 +26,13 @@ class PaintViewModel {
   /// ペンを移動しながら、ポイントを追加する
   void pushPoint(Offset point) {
     if (activeLine.state != PaintState.doing) return;
+    if (activeLine.points.isNotEmpty) {
+      Offset lastP = activeLine.points.last;
+      Offset diff = Offset(point.dx - lastP.dx, point.dy - lastP.dy);
+      if (diff.distance < 8) {
+        return;
+      }
+    }
     activeLine.points.add(point);
   }
 
@@ -67,5 +74,13 @@ class PaintViewModel {
       strokeWidth: _activeWidth,
     );
     _lines.add(line);
+  }
+
+  void activeEditLine(Offset point) {
+    List<LineModel> lines = _lines.where((line) => line.path.getBounds().contains(point)).toList();
+    if (lines.isNotEmpty) {
+      lines[0].state = PaintState.edit;
+      lines[0].recode();
+    }
   }
 }

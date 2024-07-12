@@ -7,10 +7,10 @@ class FlexibleFitPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: SafeArea(
+      body: const SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
+          children: [
             Flexible(
               flex: 1,
               fit: FlexFit.tight,

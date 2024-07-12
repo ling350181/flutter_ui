@@ -1,7 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-
 class DashPath {
   /// 破線の点線長さ
   final double step = 5;

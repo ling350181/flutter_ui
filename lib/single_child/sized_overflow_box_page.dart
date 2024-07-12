@@ -14,14 +14,14 @@ class SizedOverflowBoxPage extends StatelessWidget {
           color: Colors.lightGreen,
           child: LayoutBuilder(
             builder: (_, constraints) {
-              print("OverflowBox 親から受けた制約: ${constraints}");
+              print("OverflowBox 親から受けた制約: $constraints");
               return Center(
                 child: SizedOverflowBox(
                   alignment: Alignment.topLeft,
                   size: const Size(150, 150),
                   child: LayoutBuilder(
                     builder: (_, constraints) {
-                      print("OverflowBox 機能している制約: ${constraints}");
+                      print("OverflowBox 機能している制約: $constraints");
                       return const SizedBox(
                         height: 30,
                         width: 30,

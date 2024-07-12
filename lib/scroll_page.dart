@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/gesture/gesture_detector_other_page.dart';
 import 'package:flutter_ui/scroll/grid_sliver_fixed_cross_page.dart';
 import 'package:flutter_ui/scroll/grid_sliver_max_cross_page.dart';
 

@@ -21,8 +21,8 @@ class OverflowBoxPage extends StatelessWidget {
               color: Colors.green.withAlpha(33),
               child: LayoutBuilder(
                 builder: (_, constraints) {
-                  print("OverflowBox 親から受けた制約: ${constraints}");
-                  print("OverflowBox(${minWidth}<=w<=${maxWidth}, ${minHeight}<=h<=${maxHeight})");
+                  print("OverflowBox 親から受けた制約: $constraints");
+                  print("OverflowBox($minWidth<=w<=$maxWidth, $minHeight<=h<=$maxHeight)");
                   return OverflowBox(
                     maxHeight: maxHeight,
                     maxWidth: maxWidth,
@@ -30,7 +30,7 @@ class OverflowBoxPage extends StatelessWidget {
                     minHeight: minHeight,
                     child: LayoutBuilder(
                       builder: (_, constraints) {
-                        print("OverflowBox 機能している制約: ${constraints}");
+                        print("OverflowBox 機能している制約: $constraints");
                         // 親のサイズを超える
                         return const SizedBox(
                           height: 350,

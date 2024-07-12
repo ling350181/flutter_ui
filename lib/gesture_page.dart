@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/application/drawing_board/drawing_board_page.dart';
+import 'package:flutter_ui/application/drawing_board_pro/drawing_board_pro_page.dart';
 import 'package:flutter_ui/application/parabola/parabola_gesture_page.dart';
 import 'package:flutter_ui/gesture/gesture_detector_other_page.dart';
 import 'package:flutter_ui/gesture/gesture_detector_page.dart';
@@ -96,6 +97,27 @@ class GesturePage extends StatelessWidget {
                   );
                 },
                 child: const Text("応用編(絵描きボード)"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width - 50, 50),
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DrawingBoardProPage(),
+                    ),
+                  );
+                },
+                child: const Text("応用編(絵描きボード改善版)"),
               ),
             ),
           ],
